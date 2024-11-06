@@ -1,0 +1,10 @@
+# Front-end dependencies
+todo-client/node_modules
+todo-client/dist
+
+# Back-end build outputs
+todo-api/bin/
+todo-api/obj/
+
+# System files
+.DS_Store
