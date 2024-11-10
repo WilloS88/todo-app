@@ -1,3 +1,11 @@
+<template>
+  <div class="task-card">
+    <h3>{{ task.title }}</h3>
+    <p>{{ task.description }}</p>
+    <button @click="toggleComplete">{{ task.completed ? 'Undo' : 'Complete' }}</button>
+  </div>
+</template>
+
 <script>
 import { defineComponent, ref, toRefs } from 'vue';
 import PageCard from "./PageCard.vue"
@@ -30,16 +38,6 @@ export default defineComponent({
   }
 });
 </script>
-
-<template>
-  <PageCard>
-  <div class="task-card">
-    <h3>{{ task.title }}</h3>
-    <p>{{ task.description }}</p>
-    <button @click="toggleComplete">{{ task.completed ? 'Undo' : 'Complete' }}</button>
-  </div>
-  </PageCard>
-</template>
 
 <style scoped lang="scss">
 .task-card {

@@ -1,4 +1,3 @@
-<!-- src/components/task/TaskItem.vue -->
 <template>
   <div class="task-item">
     <h3>{{ task.title }}</h3>

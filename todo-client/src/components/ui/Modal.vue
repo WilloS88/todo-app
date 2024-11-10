@@ -1,4 +1,3 @@
-<!-- src/components/ui/Modal.vue -->
 <template>
   <div class="modal-overlay" @click.self="closeModal">
     <div class="modal-content">
@@ -30,7 +29,6 @@ export default {
   },
 };
 </script>
-
 
 <style scoped lang="scss">
 .modal-overlay {
