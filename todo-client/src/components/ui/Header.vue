@@ -21,15 +21,17 @@ export default {
 
 <style scoped lang="scss">
 header {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   background-color: #145035;
   color: white;
-  padding: 20px;
   text-align: center;
   width: 100%;
+  height: 80%;
   border-radius: 5px;
-  max-width: 1200px;
+  max-width: 1000px;
 }
 
 .header-icon {

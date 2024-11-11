@@ -1,14 +1,16 @@
 <template>
   <div class="task-card">
     <h3>{{ task.title }}</h3>
-    <p>{{ task.description }}</p>
-    <button @click="toggleComplete">{{ task.completed ? 'Undo' : 'Complete' }}</button>
+    <div>{{ task.description }}</div>
+    <button @click="toggleComplete">
+      {{ task.completed ? "Undo" : "Complete" }}
+    </button>
   </div>
 </template>
 
 <script>
-import { defineComponent, ref, toRefs } from 'vue';
-import PageCard from "./PageCard.vue"
+import { defineComponent, ref, toRefs } from "vue";
+import PageCard from "./PageCard.vue";
 
 export default defineComponent({
   components: {
@@ -19,11 +21,11 @@ export default defineComponent({
       type: Object,
       required: true,
       default: () => ({
-        title: '',
-        description: '',
-        completed: false
-      })
-    }
+        title: "",
+        description: "",
+        completed: false,
+      }),
+    },
   },
   setup(props) {
     const { task } = toRefs(props);
@@ -33,9 +35,9 @@ export default defineComponent({
 
     return {
       task,
-      toggleComplete
+      toggleComplete,
     };
-  }
+  },
 });
 </script>
 
@@ -45,5 +47,15 @@ export default defineComponent({
   padding: 16px;
   margin: 8px;
   border-radius: 4px;
+  max-width: 300px;
 }
-</style></template>
+
+.task-card h3,
+.task-card div {
+  overflow-wrap: break-word;
+}
+
+.task-card div {
+  width: auto;
+}
+</style>

@@ -1,7 +1,6 @@
 <template>
   <div class="task-list">
-    <h2>Task List</h2>
-    <div v-if="tasks.length">
+    <div v-if="tasks.length" class="task-list-item">
       <TaskItem
         v-for="task in tasks"
         :key="task.id"
@@ -41,7 +40,15 @@ export default {
 
 <style scoped lang="scss">
 .task-list {
+  
   margin-top: 20px;
-  min-width: 80%;
+  min-width: 800px;
 }
+
+.task-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 </style>

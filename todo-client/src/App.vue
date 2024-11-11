@@ -26,20 +26,20 @@ export default {
 <style scoped lang="scss">
 * {
   margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: rgb(239, 239, 239);
+  padding: 0;  
 }
 
 body {
-  margin: 0 !important; 
   padding: 0;
+  background-color: rgb(93, 82, 82);
+
 }
 
 .page {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgb(208, 208, 208);
 }
 
 main {

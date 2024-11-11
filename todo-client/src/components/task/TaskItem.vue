@@ -1,7 +1,7 @@
 <template>
   <div class="task-item">
     <h3>{{ task.title }}</h3>
-    <p>{{ task.description }}</p>
+    <div>{{ task.description }}</div>
     <p><strong>State:</strong> {{ task.state }}</p>
     <div class="buttons">
       <Button @click="editTask">Edit Task</Button>
@@ -45,7 +45,11 @@ export default {
   width: 80%;
   h3 {
     margin-top: 0;
+    overflow-wrap: break-word;
   }
+  div{
+    overflow-wrap: break-word;
+  } 
   .buttons {
     margin-top: 10px;
     Button {
