@@ -6,8 +6,8 @@
         v-for="task in tasks"
         :key="task.id"
         :task="task"
-        @edit-task="$emit('edit-task', $event)"
-        @delete-task="$emit('delete-task', $event)"
+        @edit-task="openEditModal"
+        @delete-task="deleteTask"
       />
     </div>
     <div v-else>
@@ -17,15 +17,24 @@
 </template>
 
 <script>
-import TaskItem from './TaskItem.vue';
+import TaskItem from "./TaskItem.vue";
+import { mapState, mapActions } from "vuex";
 
 export default {
-  name: 'TaskList',
+  name: "TaskList",
   components: {
     TaskItem,
   },
-  props: {
-    tasks: Array,
+  computed: {
+    ...mapState({
+      tasks: (state) => state.tasks,
+    }),
+  },
+  methods: {
+    ...mapActions(["deleteTask"]),
+    openEditModal(task) {
+      this.$emit("edit-task", task);
+    },
   },
 };
 </script>
@@ -33,5 +42,6 @@ export default {
 <style scoped lang="scss">
 .task-list {
   margin-top: 20px;
+  min-width: 80%;
 }
 </style>

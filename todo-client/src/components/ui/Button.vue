@@ -6,11 +6,11 @@
 
 <script>
 export default {
-  name: 'Button',
+  name: "Button",
   props: {
     type: {
       type: String,
-      default: 'button',
+      default: "button",
     },
   },
 };

@@ -1,13 +1,9 @@
 <template>
   <div class="layout">
-    <div class="add-task-button">
+    <div class="add-task-div">
       <Button @click="openAddModal">Add Task</Button>
     </div>
-    <TaskList
-      :tasks="tasks"
-      @edit-task="openEditModal"
-      @delete-task="deleteTask"
-    />
+    <TaskList @edit-task="openEditModal" />
     <Modal v-if="showModal.visible" @close="closeModal">
       <AddTask
         :task="currentTask"
@@ -19,14 +15,14 @@
 </template>
 
 <script>
-import AddTask from './task/AddTask.vue';
-import TaskList from './task/TaskList.vue';
-import Modal from './ui/Modal.vue';
-import Button from './ui/Button.vue';
-import { v4 as uuidv4 } from 'uuid';
+import AddTask from "./task/AddTask.vue";
+import TaskList from "./task/TaskList.vue";
+import Modal from "./ui/Modal.vue";
+import Button from "./ui/Button.vue";
+import { mapActions } from "vuex";
 
 export default {
-  name: 'Layout',
+  name: "Layout",
   components: {
     AddTask,
     TaskList,
@@ -35,53 +31,38 @@ export default {
   },
   data() {
     return {
-      tasks: [],
       showModal: {
         visible: false,
-        mode: '',
+        mode: "",
       },
       currentTask: null,
     };
   },
   methods: {
+    ...mapActions(["addTask", "updateTask", "loadTasks"]),
     openAddModal() {
       this.currentTask = null;
-      this.showModal = { visible: true, mode: 'add' };
+      this.showModal = { visible: true, mode: "add" };
     },
     openEditModal(task) {
       this.currentTask = { ...task };
-      this.showModal = { visible: true, mode: 'edit' };
+      this.showModal = { visible: true, mode: "edit" };
     },
     closeModal() {
-      this.showModal = { visible: false, mode: '' };
+      this.showModal = { visible: false, mode: "" };
       this.currentTask = null;
     },
     saveTask(task) {
-      if (this.showModal.mode === 'add') {
-        task.id = uuidv4();
-        this.tasks.push(task);
-      } else if (this.showModal.mode === 'edit') {
-        const index = this.tasks.findIndex((t) => t.id === task.id);
-        if (index !== -1) {
-          this.tasks.splice(index, 1, task);
-        }
+      if (this.showModal.mode === "add") {
+        this.addTask(task);
+      } else if (this.showModal.mode === "edit") {
+        this.updateTask(task);
       }
-      this.saveTasks();
       this.closeModal();
-    },
-    deleteTask(taskId) {
-      this.tasks = this.tasks.filter((task) => task.id !== taskId);
-      this.saveTasks();
-    },
-    saveTasks() {
-      localStorage.setItem('tasks', JSON.stringify(this.tasks));
     },
   },
   created() {
-    const savedTasks = localStorage.getItem('tasks');
-    if (savedTasks) {
-      this.tasks = JSON.parse(savedTasks);
-    }
+    this.loadTasks();
   },
 };
 </script>
@@ -90,10 +71,12 @@ export default {
 .layout {
   width: 100%;
   max-width: 800px;
-  .add-task-button {
+  margin: 30px 0px 30px 0px;
+
+  .add-task-div {
     margin-bottom: 20px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
   }
 }
 </style>

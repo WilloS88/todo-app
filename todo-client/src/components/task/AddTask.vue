@@ -1,6 +1,6 @@
 <template>
   <div class="add-task">
-    <h2>{{ isEditMode ? 'Edit Task' : 'Add New Task' }}</h2>
+    <h2>{{ isEditMode ? "Edit Task" : "Add New Task" }}</h2>
     <form @submit.prevent="submitTask">
       <InputField v-model="taskData.title" label="Title" required />
       <InputField
@@ -18,7 +18,9 @@
         </select>
       </div>
       <div class="buttons">
-        <Button type="submit">{{ isEditMode ? 'Save Changes' : 'Save Task' }}</Button>
+        <Button type="submit">{{
+          isEditMode ? "Save Changes" : "Save Task"
+        }}</Button>
         <Button @click="$emit('cancel')">Cancel</Button>
       </div>
     </form>
@@ -26,11 +28,11 @@
 </template>
 
 <script>
-import InputField from '../ui/InputField.vue';
-import Button from '../ui/Button.vue';
+import InputField from "../ui/InputField.vue";
+import Button from "../ui/Button.vue";
 
 export default {
-  name: 'AddTask',
+  name: "AddTask",
   components: {
     InputField,
     Button,
@@ -38,13 +40,13 @@ export default {
   props: {
     task: Object,
   },
-  emits: ['task-saved', 'cancel'],
+  emits: ["task-saved", "cancel"],
   data() {
     return {
       taskData: {
-        title: '',
-        description: '',
-        state: 'open',
+        title: "",
+        description: "",
+        state: "open",
         id: null,
       },
     };
@@ -56,12 +58,12 @@ export default {
   },
   methods: {
     submitTask() {
-      this.$emit('task-saved', { ...this.taskData });
+      this.$emit("task-saved", { ...this.taskData });
       if (!this.isEditMode) {
         this.taskData = {
-          title: '',
-          description: '',
-          state: 'open',
+          title: "",
+          description: "",
+          state: "open",
           id: null,
         };
       }

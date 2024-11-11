@@ -9,23 +9,23 @@
 
 <script>
 export default {
-  name: 'Modal',
-  emits: ['close'],
+  name: "Modal",
+  emits: ["close"],
   methods: {
     closeModal() {
-      this.$emit('close');
+      this.$emit("close");
     },
     handleKeydown(event) {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         this.closeModal();
       }
     },
   },
   mounted() {
-    document.addEventListener('keydown', this.handleKeydown);
+    document.addEventListener("keydown", this.handleKeydown);
   },
   beforeUnmount() {
-    document.removeEventListener('keydown', this.handleKeydown);
+    document.removeEventListener("keydown", this.handleKeydown);
   },
 };
 </script>

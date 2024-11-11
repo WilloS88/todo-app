@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'InputField',
+  name: "InputField",
   props: {
     label: String,
     modelValue: [String, Number],
@@ -35,14 +35,14 @@ export default {
       default: false,
     },
   },
-  emits: ['update:modelValue'],
+  emits: ["update:modelValue"],
   computed: {
     inputValue: {
       get() {
         return this.modelValue;
       },
       set(value) {
-        this.$emit('update:modelValue', value);
+        this.$emit("update:modelValue", value);
       },
     },
   },

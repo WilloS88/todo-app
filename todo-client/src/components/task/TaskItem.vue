@@ -11,35 +11,38 @@
 </template>
 
 <script>
-import Button from '../ui/Button.vue';
+import Button from "../ui/Button.vue";
+import { mapActions } from "vuex";
 
 export default {
-  name: 'TaskItem',
+  name: "TaskItem",
   components: {
     Button,
   },
   props: {
     task: Object,
   },
-  emits: ['edit-task', 'delete-task'],
   methods: {
     editTask() {
-      this.$emit('edit-task', this.task);
+      this.$emit("edit-task", this.task);
     },
     confirmDelete() {
-      if (confirm('Are you sure you want to delete this task?')) {
-        this.$emit('delete-task', this.task.id);
-      }
+      this.deleteTask(this.task.id);
     },
+    ...mapActions(["deleteTask"]),
   },
 };
 </script>
 
 <style scoped lang="scss">
 .task-item {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(243, 243, 243);
   border: 1px solid #ccc;
+  border-radius: 5px;
   padding: 15px;
   margin-bottom: 10px;
+  width: 80%;
   h3 {
     margin-top: 0;
   }

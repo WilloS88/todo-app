@@ -1,4 +1,3 @@
-
 <template>
   <div class="page">
     <Header />
@@ -9,39 +8,44 @@
   </div>
 </template>
 
-  <script setup lang="js">
-  import Header from './components/ui/Header.vue';
-  import Footer from './components/ui/Footer.vue';
-  import Layout from './components/Layout.vue';
-  </script>
+<script>
+import Header from './components/ui/Header.vue';
+import Footer from './components/ui/Footer.vue';
+import Layout from './components/Layout.vue';
+
+export default {
+  name: "App",
+  components: {
+    Header,
+    Footer,
+    Layout,
+  },
+}
+</script>
 
 <style scoped lang="scss">
-:root {
-  font-family: 'Courier New', Courier, monospace;
-}
-
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(239, 239, 239);
 }
 
 body {
-  margin: 0px;
-  padding: 0px;
+  margin: 0 !important; 
+  padding: 0;
 }
 
 .page {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  align-items: center;
 }
 
 main {
   flex: 1;
   display: flex;
   justify-content: center;
-  padding: 10px;
+  margin: 10px 0px 10px 0px;
 }
-
-
 </style>
