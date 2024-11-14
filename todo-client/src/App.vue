@@ -1,6 +1,7 @@
 <template>
   <div class="page">
     <Header />
+    <test />
     <main>
       <Layout />
     </main>
@@ -9,9 +10,10 @@
 </template>
 
 <script>
-import Header from './components/ui/Header.vue';
-import Footer from './components/ui/Footer.vue';
-import Layout from './components/Layout.vue';
+import Header from "./components/ui/Header.vue";
+import Footer from "./components/ui/Footer.vue";
+import Layout from "./components/Layout.vue";
+import test from "./test.vue";
 
 export default {
   name: "App",
@@ -19,33 +21,25 @@ export default {
     Header,
     Footer,
     Layout,
+    test,
   },
-}
+};
 </script>
 
 <style scoped lang="scss">
-* {
-  margin: 0;
-  padding: 0;  
-}
-
-body {
-  padding: 0;
-  background-color: rgb(93, 82, 82);
-
-}
+@import "colors.scss";
 
 .page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(208, 208, 208);
+  background-color: $layout-background-color;
 }
 
 main {
-  flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 10px 0px 10px 0px;
 }
 </style>
