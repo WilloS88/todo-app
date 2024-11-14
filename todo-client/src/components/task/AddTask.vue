@@ -78,10 +78,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../../colors.scss";
+
 .add-task {
+  background-color: $secondary-color;
+
+  h2 {
+    margin-bottom: 5px;
+  }
   form {
     display: flex;
     flex-direction: column;
+
     .state-select {
       margin-bottom: 10px;
       label {
@@ -94,6 +102,11 @@ export default {
       margin-top: 15px;
       Button {
         margin-left: 10px;
+        background-color: $task-card-color;
+      }
+      Button:hover {
+        background-color: #09858c;
+        transition: background-color 0.3s ease;
       }
     }
   }

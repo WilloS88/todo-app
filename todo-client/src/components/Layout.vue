@@ -73,25 +73,27 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../colors.scss";
+
 .layout {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
   width: 100%;
-  max-width: 800px;
   margin: 30px 0px 30px 0px;
 
   .add-task-div {
     margin-bottom: 20px;
     display: flex;
-    justify-content: space-between;
-    max-width: 80%;
+    justify-content: space-around;
 
     .add-task-div-header {
+      font-family: "Courier New", Courier, monospace;
+      color: white;
+      font-size: 30px;
+      font-weight: 800;
       text-align: center;
       align-self: center;
-      font-size: 24px;
     }
   }
 
@@ -99,10 +101,10 @@ export default {
     font-size: 20px;
     font-weight: 700;
     padding: 20px;
-    background-color: #208256;
+    background-color: $primary-color;
   }
   .add-task-div-button:hover {
-    background-color: #145035;
+    background-color: $secondary-color;
     transition: background-color 0.3s ease;
   }
 }

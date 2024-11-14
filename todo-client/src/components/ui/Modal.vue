@@ -31,7 +31,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../../colors.scss";
+
 .modal-overlay {
+  color: #fff;
   position: fixed;
   top: 0;
   left: 0;
@@ -43,7 +46,11 @@ export default {
   align-items: center;
 }
 .modal-content {
-  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Courier New", Courier, monospace;
+  background-color: $secondary-color;
   padding: 20px;
   position: relative;
   width: 90%;
@@ -51,6 +58,7 @@ export default {
   border-radius: 8px;
 }
 .close-button {
+  color: white;
   position: absolute;
   top: 10px;
   right: 15px;

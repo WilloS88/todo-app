@@ -10,7 +10,7 @@
       />
     </div>
     <div v-else>
-      <p>No tasks available.</p>
+      <p class="no-tasks-message">No tasks available.</p>
     </div>
   </div>
 </template>
@@ -40,7 +40,6 @@ export default {
 
 <style scoped lang="scss">
 .task-list {
-  
   margin-top: 20px;
   min-width: 800px;
 }
@@ -51,4 +50,9 @@ export default {
   align-items: center;
 }
 
+.no-tasks-message {
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  text-align: center;
+}
 </style>

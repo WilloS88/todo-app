@@ -61,6 +61,8 @@ export default {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
+    border-radius: 5px;
+    resize: none;
   }
 }
 </style>

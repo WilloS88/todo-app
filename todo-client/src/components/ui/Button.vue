@@ -18,14 +18,11 @@ export default {
 
 <style scoped lang="scss">
 .button {
-  background-color: #3498db;
   border: none;
   color: #fff;
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 4px;
-  &:hover {
-    background-color: #2980b9;
-  }
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 </style>
