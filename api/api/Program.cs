@@ -1,9 +1,13 @@
+using api.Interfaces;
+using DbInit;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using TodoApi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddSingleton<ITodoService, TodoService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -11,7 +15,7 @@ builder.Services.AddCors(options =>
 {
 	options.AddPolicy("AllowAll", policy =>
 	{
-		policy.AllowAnyOrigin()
+		policy.AllowAnyOrigin() 
 			  .AllowAnyMethod()
 			  .AllowAnyHeader();
 	});
@@ -19,7 +23,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
@@ -33,5 +36,14 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+var configuration = new ConfigurationBuilder()
+			.SetBasePath(Directory.GetCurrentDirectory())
+			.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+			.Build();
+
+string connectionString = configuration.GetConnectionString("DefaultConnection");
+
+DatabaseInitializer.InitializeDatabase(connectionString);
 
 app.Run();
