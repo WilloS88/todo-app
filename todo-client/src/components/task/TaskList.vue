@@ -18,6 +18,7 @@
 <script>
 import TaskItem from "./TaskItem.vue";
 import { mapState, mapActions } from "vuex";
+import axios from "axios";
 
 export default {
   name: "TaskList",
@@ -34,6 +35,17 @@ export default {
     openEditModal(task) {
       this.$emit("edit-task", task);
     },
+  },
+  mounted() {
+    axios
+      .get("https://localhost:7288/Todo")
+      .then((response) => {
+        this.todos = response.data;
+        localStorage.setItem("tasks", JSON.stringify(this.todos));
+      })
+      .catch((error) => {
+        console.error("Error fetching the todo data:", error);
+      });
   },
 };
 </script>

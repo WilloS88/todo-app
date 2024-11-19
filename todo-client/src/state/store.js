@@ -9,14 +9,14 @@ export default createStore({
     SET_TASKS(state, tasks) {
       state.tasks = tasks;
     },
-    ADD_TASK(state, task) {
-      state.tasks.push(task);
-    },
     UPDATE_TASK(state, updatedTask) {
-      const index = state.tasks.findIndex((task) => task.id === updatedTask.id);
+      const index = state.tasks.findIndex((t) => t.id === updatedTask.id);
       if (index !== -1) {
         state.tasks.splice(index, 1, updatedTask);
       }
+    },
+    ADD_TASK(state, task) {
+      state.tasks.push(task);
     },
     DELETE_TASK(state, taskId) {
       state.tasks = state.tasks.filter((task) => task.id !== taskId);

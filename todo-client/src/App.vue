@@ -1,7 +1,6 @@
 <template>
   <div class="page">
     <Header />
-    <test />
     <main>
       <Layout />
     </main>
@@ -13,7 +12,6 @@
 import Header from "./components/ui/Header.vue";
 import Footer from "./components/ui/Footer.vue";
 import Layout from "./components/Layout.vue";
-import test from "./test.vue";
 
 export default {
   name: "App",
@@ -21,7 +19,6 @@ export default {
     Header,
     Footer,
     Layout,
-    test,
   },
 };
 </script>

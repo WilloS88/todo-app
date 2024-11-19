@@ -1,8 +1,8 @@
 <template>
   <div class="task-item">
     <h3>{{ task.title }}</h3>
-    <div>{{ task.description }}</div>
-    <p><strong>State:</strong> {{ task.state }}</p>
+    <div>{{ task.content }}</div>
+    <p><strong>State:</strong> {{ stateLabel }}</p>
     <div class="buttons">
       <Button @click="editTask" class="edit-task-button">Edit Task</Button>
       <Button @click="confirmDelete" class="delete-task-button">
@@ -16,6 +16,7 @@
 import Button from "../ui/Button.vue";
 import { mapActions } from "vuex";
 import BinIcon from "../../assets/BinIcon.svg";
+import axios from "axios";
 
 export default {
   name: "TaskItem",
@@ -30,13 +31,35 @@ export default {
   props: {
     task: Object,
   },
+  computed: {
+    stateLabel() {
+      const stateMapping = {
+        Open: "Open",
+        InProgress: "In Progress",
+        Finished: "Finished",
+      };
+      return stateMapping[this.task.state] || "Unknown";
+    },
+  },
   methods: {
     editTask() {
       this.$emit("edit-task", this.task);
     },
-    confirmDelete() {
-      this.deleteTask(this.task.id);
+
+    async confirmDelete() {
+      try {
+        await axios.delete(
+          `https://localhost:7288/Todo/${this.task.id}`
+        );
+        this.deleteTask(this.task.id);
+      } catch (error) {
+        console.error(
+          "Error deleting task:",
+          error.response ? error.response.data : error.message
+        );
+      }
     },
+    async updateTask() {},
     ...mapActions(["deleteTask"]),
   },
 };

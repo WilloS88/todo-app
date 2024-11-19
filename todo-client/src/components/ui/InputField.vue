@@ -6,14 +6,12 @@
         <textarea
           v-model="inputValue"
           :required="required"
-          @input="updateValue($event.target.value)"
         ></textarea>
       </template>
       <template v-else>
         <input
           v-model="inputValue"
           :required="required"
-          @input="updateValue($event.target.value)"
         />
       </template>
     </div>
