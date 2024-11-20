@@ -51,6 +51,7 @@ cd TODO-APP
 make sure your Docker desktop app is on
 
 3. **Backend**:
+
 in Visual Studio open the api.sln file
 ```bash
     dotnet restore
