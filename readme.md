@@ -18,7 +18,9 @@ The project is designed for task management with APIs hosted by the backend and 
 3. **General Tools**:
    - Docker (for database)
    - Git (for version control)
-   - Text editor or IDE (VS Code/Visual Studio)
+   - Text editor or IDE
+     - VS Code (for frontend)
+     - Visual Studio (for backend)
 
 ---
 
@@ -41,14 +43,14 @@ cd TODO-APP
     npm run dev
 ```
 
-3. **Database**:
+2. **Database**:
 ```bash
     cd api
     docker-compose up --build
 ```
 make sure your Docker desktop app is on
 
-4. **Backend**:
+3. **Backend**:
 in Visual Studio open the api.sln file
 ```bash
     dotnet restore
@@ -63,6 +65,7 @@ if that command does not help, dowload NuGet packages manually
 
 then simply press F5 to start the Backend
 
+---
 
 ### Application
 
