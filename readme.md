@@ -46,19 +46,23 @@ cd TODO-APP
     cd api
     docker-compose up --build
 ```
-    make sure your Docker desktop app is on
+make sure your Docker desktop app is on
 
 4. **Backend**:
-    in Visual Studio open the api.sln file
+in Visual Studio open the api.sln file
 ```bash
     dotnet restore
 ```
-    if that command does not help, dowload NuGet packages manually
-    (Dapper, Microsoft.AspNetCore.Cors, MySql.Data, Swashbuckle.AspNetCore, System.Data.SQLite)
+if that command does not help, dowload NuGet packages manually
+    -Dapper 
+    -Microsoft.AspNetCore.Cors 
+    -MySql.Data 
+    -Swashbuckle.AspNetCore 
+    -System.Data.SQLite
 
-    then simply press F5 to start the Backend
+then simply press F5 to start the Backend
 
 
 ### Application
 
-    Make sure the FE, BE and DB is started then the app can be used without any issues.
+Make sure the FE, BE and DB is started then the app can be used without any issues.
