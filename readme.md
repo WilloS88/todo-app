@@ -54,11 +54,12 @@ in Visual Studio open the api.sln file
     dotnet restore
 ```
 if that command does not help, dowload NuGet packages manually
-    - Dapper 
-    - Microsoft.AspNetCore.Cors 
-    - MySql.Data 
-    - Swashbuckle.AspNetCore 
-    - System.Data.SQLite
+
+ - Dapper 
+ - Microsoft.AspNetCore.Cors 
+ - MySql.Data 
+ - Swashbuckle.AspNetCore 
+ - System.Data.SQLite
 
 then simply press F5 to start the Backend
 
